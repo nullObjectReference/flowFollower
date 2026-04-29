@@ -12,16 +12,16 @@ public class Main {
 
     public void main(String[] args) throws IOException {
         flowField = new FlowField(op);
-        robot = new Robot(new Position(3, -5), op);
-        flowField.flowField[Robot.position.x + 6][Robot.position.y + 6] = 5; //Map previous position with a 5
+        robot = new Robot(new Position(3, -3), op);
+        flowField.flowField[target[0] + 5][target[1] + 5] = 8; //Mark target position with an 8
 
 
         while (!done) {
-            flowField.flowField[Robot.position.x + 6][Robot.position.y + 6] = 5; //Map previous position with a 5
+            flowField.flowField[Robot.position.x + 5][Robot.position.y + 5] = 5; //Mark previous position with a 5
 
             int vectorEffect = flowField.getVectorEffect();
             done = robot.followFlow(vectorEffect); // complete actual movement and evaluate if target is reached
-            flowField.flowField[Robot.position.x + 6][Robot.position.y + 6] = 7; //Mark the current position with a 7
+            flowField.flowField[Robot.position.x + 5][Robot.position.y + 5] = 7; //Mark the current position with a 7
 
             System.out.println("vectorEffect: " + vectorEffect + " vectorDistance: " + flowField.distance);
 
